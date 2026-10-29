@@ -73,7 +73,7 @@ const MACHINES_DATA = [
       "Tamanho da Placa": "8\" Hidráulica",
       "Torre de Ferramentas": "12 Posições Servoacionada (0.2s)",
       "Rotação do Spindle": "4.500 RPM",
-      "Comando CNC": "Fanuc 0i-TF / GSK / Syntec",
+      "Comando CNC": "Fanuc 0i-TF / Mitsubishi / Syntec",
       "Aplicação": "Torneamento de Alta Produção Seriada e Precisão"
     }
   },
@@ -94,7 +94,7 @@ const MACHINES_DATA = [
       "Nariz da Árvore": "A2-6",
       "Faixa de Rotação": "35 a 2.500 RPM (Inversor Vetorial)",
       "Torre de Ferramentas": "4 ou 6 Posições Elétrica Vertical",
-      "Comando CNC": "GSK 980 / Fanuc / Siemens",
+      "Comando CNC": "Mitsubishi M80 / Fanuc / Siemens",
       "Aplicação": "Manutenção, Eixos Longos e Lotes Médios/Pequenos"
     }
   },
