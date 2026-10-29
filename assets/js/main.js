@@ -1,10 +1,13 @@
 /**
- * CM SOLUTION - CNC & INDUSTRIAL SOLUTIONS
+ * CAM SOLUTION - CNC & INDUSTRIAL SOLUTIONS
+ * Razão Social: Carlos André de Melo | CNPJ: 55.306.839/0001-44
+ * Quiririm, Taubaté - SP
  * Dynamic Logic & Catalog Engine
  * Official Contacts:
  * WhatsApp: +55 (11) 94361-9085
  * Telefone: +55 (11) 95844-6116
  * E-mail: prof.carllosmelo@gmail.com
+ * Especialista Técnico: Prof. Carlos André Melo
  */
 
 const WHATSAPP_NUM = "5511943619085";
@@ -466,13 +469,13 @@ function initContactForm() {
     const interest = document.getElementById("interest")?.value || "";
     const details = document.getElementById("details")?.value.trim() || "";
 
-    let text = `*SOLICITAÇÃO DE CONTATO - CM SOLUTION*\n\n`;
+    let text = `*SOLICITAÇÃO DE CONTATO - CAM SOLUTION*\n\n`;
     text += `👤 *Nome:* ${name}\n`;
     if (company) text += `🏢 *Empresa:* ${company}\n`;
     if (phone) text += `📞 *WhatsApp:* ${phone}\n`;
     text += `🎯 *Interesse:* ${interest}\n`;
     if (details) text += `📝 *Detalhes:* ${details}\n\n`;
-    text += `_Enviado pelo site oficial CM SOLUTION_`;
+    text += `_Enviado pelo site oficial CAM SOLUTION (Carlos André Melo - CNPJ: 55.306.839/0001-44)_`;
 
     const url = `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank", "noopener");
@@ -525,23 +528,52 @@ function initScrollHeader() {
   });
 }
 
-// Mobile Nav Toggle
+// Mobile Drawer Navigation (Flawless UX & Touch Target Friendly)
 function initMobileNav() {
   const toggleBtn = document.getElementById("mobileToggle");
-  const header = document.querySelector(".site-header");
-  const navLinks = document.querySelectorAll(".nav-link");
+  const drawer = document.getElementById("mobileDrawer");
+  const drawerLinks = document.querySelectorAll(".mobile-nav-item");
 
-  if (toggleBtn && header) {
+  if (toggleBtn && drawer) {
     toggleBtn.addEventListener("click", () => {
-      header.classList.toggle("mobile-open");
+      const isOpen = drawer.classList.contains("active");
+      if (isOpen) {
+        closeMobileDrawer();
+      } else {
+        openMobileDrawer();
+      }
     });
 
-    navLinks.forEach(link => {
+    drawerLinks.forEach(link => {
       link.addEventListener("click", () => {
-        header.classList.remove("mobile-open");
+        closeMobileDrawer();
       });
     });
+
+    drawer.addEventListener("click", (e) => {
+      if (e.target === drawer) closeMobileDrawer();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMobileDrawer();
+    });
   }
+}
+
+function openMobileDrawer() {
+  const toggleBtn = document.getElementById("mobileToggle");
+  const drawer = document.getElementById("mobileDrawer");
+  if (drawer) drawer.classList.add("active");
+  if (toggleBtn) toggleBtn.classList.add("is-active");
+  document.body.classList.add("menu-open");
+}
+
+function closeMobileDrawer() {
+  const toggleBtn = document.getElementById("mobileToggle");
+  const drawer = document.getElementById("mobileDrawer");
+  if (drawer) drawer.classList.remove("active");
+  if (toggleBtn) toggleBtn.classList.remove("is-active");
+  document.body.classList.remove("menu-open");
 }
 
 // Back to Top Button
@@ -556,7 +588,7 @@ function initBackToTop() {
 
 // Global WhatsApp quick click
 window.openDirectWhatsApp = function(customMsg) {
-  const msg = customMsg || "Olá! Vim pelo site da CM SOLUTION e gostaria de falar com um especialista técnico.";
+  const msg = customMsg || "Olá Prof. Carlos André Melo! Vim pelo site da CAM SOLUTION e gostaria de falar com você sobre máquinas e soluções CNC.";
   window.open(`https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
 };
 
